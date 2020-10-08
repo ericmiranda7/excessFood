@@ -1,0 +1,16 @@
+body {
+    padding-top: 66px;
+}
+@media (max-width: 979px) {
+    body {
+        padding-top: 55px;
+    }
+}
+
+#mainNav {
+    padding: 0.5em;
+}
+
+#mainNav.navbar-shrink {
+    padding: 0;
+}
