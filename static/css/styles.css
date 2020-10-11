@@ -1,6 +1,7 @@
 body {
     padding-top: 66px;
 }
+
 @media (max-width: 979px) {
     body {
         padding-top: 55px;
@@ -13,10 +14,6 @@ body {
 
 #mainNav.navbar-shrink {
     padding: 0;
-}
-
-a {
-    color: #1abc9c;
 }
 
 p {
