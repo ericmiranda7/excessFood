@@ -19,6 +19,7 @@ class Food(models.Model):
         help_text="Veg or Non Veg"
         )
     qty = models.IntegerField()
+    added_at = models.DateTimeField()
     expiry = models.DateTimeField()
     address = models.TextField()
 

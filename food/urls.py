@@ -1,7 +1,8 @@
+from food.views import Donate
 from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('donate/', views.donate),
+    path('donate/', Donate.as_view(), name='donate'),
     path('display/', views.display),
 ]
