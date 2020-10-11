@@ -21,14 +21,6 @@ class Food(models.Model):
     qty = models.IntegerField()
     expiry = models.DateTimeField()
     address = models.TextField()
-    user = models.ForeignKey('Donator', on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name;
-
-class Donator(models.Model):
-    name = models.CharField(max_length=32)
-    contact_no = models.IntegerField()
-
-    def __str__(self):
-        return self.name;
+        return self.name
