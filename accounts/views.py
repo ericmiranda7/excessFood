@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth.views import LoginView
 
 # Create your views here.
-def login(request):
-    return render(request, 'accounts/login.html')
+class Login(LoginView):
+    template_name = 'accounts/login.html'
 
 def signup(request):
     return render(request, 'accounts/signup.html')
