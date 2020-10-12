@@ -2,6 +2,7 @@ from food.models import Food
 from django.shortcuts import render
 from .forms import FoodForm
 from django.views.generic import CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 """def donate(request):
@@ -14,7 +15,7 @@ from django.views.generic import CreateView
             form.save()
         return render(request, 'food/success.html')"""
 
-class Donate(CreateView):
+class Donate(LoginRequiredMixin, CreateView):
     model = Food
     fields = ['name', 'category', 'qty', 'expiry', 'address']
     template_name = 'food/donate.html'
