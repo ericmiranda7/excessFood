@@ -8,6 +8,11 @@ class Donator(models.Model):
     last_name = models.CharField(max_length=32)
     email = models.EmailField()
     phone = models.IntegerField()
+    addresses = models.ManyToManyField('Address')
 
     def __str__(self):
         return self.user.username
+
+class Address(models.Model):
+    name = models.CharField(max_length=30)
+    addr = models.TextField()
