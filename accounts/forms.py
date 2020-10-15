@@ -21,12 +21,11 @@ class DonatorForm(ModelForm):
     class Meta:
         model = Donator
         # fields = '__all__'
-        fields = ('first_name', 'last_name', 'email', 'phone', 'addresses')
+        fields = ('first_name', 'last_name', 'email', 'phone', 'user')
 
         widgets = {
         			'first_name': forms.TextInput(attrs = {'class': 'form-control'}),
         			'last_name': forms.TextInput(attrs = {'class': 'form-control'}),
         			'email': forms.TextInput(attrs = {'class': 'form-control'}),
         			'phone': forms.TextInput(attrs = {'class': 'form-control'}),
-        			'addresses': forms.Select(attrs = {'class': 'form-control'}),
         }
