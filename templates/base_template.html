@@ -18,6 +18,7 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    {% block head %} {% endblock %}
 </head>
 
 <body class="{% if not request.resolver_match.url_name == 'home' %} body-padding {% endif %}">
@@ -53,9 +54,9 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger dropdown-item"
-                            href="{% url 'logout' %}">Logout</a>
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger dropdown-item"
                             href="{% url 'profile' %}">Profile</a>
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger dropdown-item"
+                            href="{% url 'logout' %}">Logout</a>
                         </div>
                     </div>
                     {% endif %}
