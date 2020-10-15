@@ -5,20 +5,17 @@ from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
-"""def donate(request):
-    if request.method == 'GET':
-        form = FoodForm()
-        return render(request, 'food/donate.html', {'form': form})
-    else:
-        form = FoodForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-        return render(request, 'food/success.html')"""
-
 class Donate(LoginRequiredMixin, CreateView):
     model = Food
-    fields = ['name', 'category', 'qty', 'expiry', 'address']
+    form_class = FoodForm
     template_name = 'food/donate.html'
+    
+    def get_initial(self, **kwargs):
+        initial = super(Donate, self).get_initial(**kwargs)
+        initial['donator'] = self.request.user.donator
+        return initial
+
+
 
 def display(request):
     pass

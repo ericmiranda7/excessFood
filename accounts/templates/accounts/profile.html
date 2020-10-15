@@ -4,6 +4,7 @@
 <form method="POST">
 {% csrf_token %}
 {{ form }}
+<input type="hidden" name="user", value="{{ request.user.id }}">
 <input type="submit">
 </form>
 {% endblock %}

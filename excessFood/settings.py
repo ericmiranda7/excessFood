@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'smart_selects',
     'accounts',
     'food',
 ]
@@ -130,3 +131,6 @@ STATICFILES_DIRS = [
 # Redirect after login / logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+# For smartselects
+USE_DJANGO_JQUERY = True

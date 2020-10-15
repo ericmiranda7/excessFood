@@ -26,4 +26,5 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('accounts/', include('accounts.urls')),
     path('food/', include('food.urls')),
+    path(r'^chaining/', include('smart_selects.urls')),
 ]

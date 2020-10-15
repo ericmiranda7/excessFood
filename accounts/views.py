@@ -1,4 +1,4 @@
-from accounts.forms import DonateForm
+from accounts.forms import DonatorForm
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView, LogoutView
@@ -24,7 +24,7 @@ class SignUp(CreateView):
         return reverse('login')
 
 class Profile(CreateView):
-    form_class = DonateForm
+    form_class = DonatorForm
     template_name = 'accounts/profile.html'
     success_url = '/food/donate/'
 
