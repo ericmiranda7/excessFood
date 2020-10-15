@@ -1,9 +1,9 @@
-body {
-    padding-top: 80px;
+.body-padding {
+    padding-top: 5em;
 }
 
 @media (max-width: 979px) {
-    body {
+    .body-padding {
         padding-top: 55px;
     }
 }
