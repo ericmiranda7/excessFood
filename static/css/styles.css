@@ -15,3 +15,7 @@ body {
 #mainNav.navbar-shrink {
     padding: 0;
 }
+
+.dropdown > a {
+    color: white;
+}
