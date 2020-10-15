@@ -1,7 +1,8 @@
+from typing import List
 from food.models import Food
 from django.shortcuts import render
 from .forms import FoodForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
@@ -18,8 +19,8 @@ class Donate(LoginRequiredMixin, CreateView):
 
 
 
-def display(request):
-    pass
+class FoodList(ListView):
+    model = Food
 
 def success(request):
     obj = Food.objects.all()[11]
