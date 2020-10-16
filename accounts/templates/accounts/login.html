@@ -15,24 +15,48 @@
     {% endif %}
 {% endif %}
 
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
 
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
+<!-- SignInSection-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- SignInSection Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign In</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+             <!-- SignInSection Form-->
+                <div class="form-group">
 
-{# Assumes you setup the password_reset view in your URLconf, CHANGE URL #}
-<p><a href="{% url 'login' %}">Lost password?</a></p>
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <table >
+                            <tr>
+                                <td>{{ form.username.label_tag }}</td>
+                                <td>{{ form.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password.label_tag }}</td>
+                                <td>{{ form.password }}</td>
+                            </tr>
+                        </table>
+
+                        <input type="submit" value="login">
+                        <input type="hidden" name="next" value="{{ next }}">
+                    </form>
+                    {# Assumes you setup the password_reset view in your URLconf, CHANGE URL #}
+                    <p><a href="{% url 'login' %}">Lost password?</a></p>
+
+                </div>
+            
+            <!-- SignInSection Form-->
+        </div>
+    </section>
+  <!-- SignIn Section-->
+
+
+
 
 {% endblock %}
