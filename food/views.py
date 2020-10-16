@@ -4,6 +4,7 @@ from django.shortcuts import render
 from .forms import FoodForm
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from datetime import date
 
 # Create your views here.
 class Donate(LoginRequiredMixin, CreateView):
@@ -21,7 +22,7 @@ class Donate(LoginRequiredMixin, CreateView):
 
 class FoodList(ListView):
     model = Food
+    paginate_by = 8
 
 def success(request):
-    obj = Food.objects.all()[11]
-    return render(request, 'food/success.html', context={'food': obj})
+    return render(request, 'food/success.html')

@@ -1,7 +1,83 @@
 {% extends 'base_template.html' %}
+{% load humanize %}
 
 {% block body %}
 
+  <div class="container emp-profile">
+    {% comment %} <form action="{% url 'criminals:search' %}" , method="GET">
 
+      {% csrf_token %}
+      <input type="text" class="form-control" name="name" placeholder="Search by name" value="{{ request.GET.name }}">
+
+      {{ advancedSearch.state }}
+
+      {{ advancedSearch.city }}
+
+      <input list="crimes" name="crime" class="form-control">
+      <datalist id="crimes">
+        {% for crime in crimes %}
+          <option value={{ crime.id }}> {{ crime.crime_type }} </option>
+        {% endfor %}
+      </datalist>
+      <input type="submit" value="Search">
+
+    </form> {% endcomment %}
+
+    {% if food_list %}
+
+    <div class="container">
+      <div class="row justify-content-center">
+
+        {% for food in food_list %}
+
+        <div class="col-sm-4 d-flex gap p-0">
+          <div class="card card-width mx-auto">
+            <div class="criminalimg">
+              <img class="card-img-top cardimg" src="{{ food.photo.url }}" alt="Card image cap">
+            </div>
+            <div class="card-body flex-fill">
+              <div class="twosent">
+                <h5 class="card-title">NAME: {{ food.name }}</h5>
+              </div>
+              <div class="twosent">
+                <p class="card-text">EXPIRY:
+                {{ food.expiry|naturalday|title }}, {{ food.expiry.time }}
+                </p>
+              </div>
+              <div class="container loc twosent">
+                <p class="card-text">DISTANCE: {{ criminal.location }} </p>
+              </div>
+              {% comment %} <a href="{% url 'criminals:details' criminal.criminal_id %}" class="btn btn-primary btn-fix details">See
+                Details</a> {% endcomment %}
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+      </div>
+      <div class="pagination">
+        <span class="step-links">
+          {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+          {% endif %}
+
+          <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+          </span>
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+          {% endif %}
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  {% else %}
+  not found
+  {% endif %}
 
 {% endblock %}

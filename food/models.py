@@ -24,6 +24,10 @@ class Food(models.Model):
         auto_choose=True,
         sort=True,
     )
+    photo = models.ImageField()
+
+    class Meta:
+        ordering = ['expiry']
 
     def __str__(self):
         return self.name
