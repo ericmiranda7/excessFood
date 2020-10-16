@@ -31,6 +31,8 @@ class Food(models.Model):
         choices=tags,
         default='N',
         )
+    lat = models.IntegerField(blank=True, null=True)
+    lon = models.IntegerField(blank=True, null=True)
 
     class Meta:
         ordering = ['expiry']
