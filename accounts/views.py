@@ -1,4 +1,4 @@
-from accounts.forms import DonatorForm
+from accounts.forms import DonatorForm, VolunteerForm
 from django.contrib.auth.models import User
 from django.shortcuts import render
 from django.contrib.auth.views import LoginView, LogoutView
@@ -27,6 +27,11 @@ class Profile(CreateView):
     form_class = DonatorForm
     template_name = 'accounts/profile.html'
     success_url = '/food/donate/'
+
+class VolunteerProfile(CreateView):
+    form_class = VolunteerForm
+    template_name = 'accounts/volunteerProfile.html'
+    success_url = 'home'
 
 def index(request):
     return render(request, 'accounts/index.html')
