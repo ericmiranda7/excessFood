@@ -47,6 +47,11 @@
               <div class="container loc twosent">
                 <p class="card-text">DISTANCE: {{ criminal.location }} </p>
               </div>
+              <div class="container tag">
+                {% if food.tag != 'N' %}
+                <p class="{{ food.tag }}">{{ food.get_tag_display }}</p>
+                {% endif %}
+              </div>
               {% comment %} <a href="{% url 'criminals:details' criminal.criminal_id %}" class="btn btn-primary btn-fix details">See
                 Details</a> {% endcomment %}
             </div>
