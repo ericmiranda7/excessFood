@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Permission API</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <h1>Permission API</h1>
+    </header>
+    <main>
+        
+    </main>    
+
+    <p id="demo"></p>
+    <script>
+        //HTML5 Permission API
+        if(navigator.permissions){
+            //browser supports this
+        
+            navigator.permissions.query({name:'geolocation'})
+            .then(function(permissionStatus) {  
+                console.log('geolocation permission state is ', permissionStatus.state);
+
+                permissionStatus.onchange = function() {  
+                  console.log('geolocation permission state has changed to ', this.state);
+                };
+            });
+
+            //navigator.permissions.query({name:'push', userVisibleOnly:true})
+
+            navigator.geolocation.getCurrentPosition(ftw, wtf);
+            function ftw(){getLocation()}
+            function wtf(){console.log('no')}
+
+            
+        }
+
+     var x = document.getElementById("demo");
+
+    function getLocation() {
+	  if (navigator.geolocation) {
+	    navigator.geolocation.getCurrentPosition(showPosition);
+	  } else { 
+	    x.innerHTML = "Geolocation is not supported by this browser.";
+	  }
+	}
+
+	function showPosition(position) {
+	  x.innerHTML = "Latitude: " + position.coords.latitude + 
+	  "<br>Longitude: " + position.coords.longitude;
+	}
+
+
+    </script>
+
+    
+</body>
+</html>
