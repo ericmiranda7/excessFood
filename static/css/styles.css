@@ -41,3 +41,25 @@
 	background-color: #656060;
 	border-radius: 20px;
 }
+
+.submitreq {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	font-size: 80%;
+	color: #fff;
+	padding: 1em 1em;
+	background-color: #007bff;;
+	border-radius: 20px;
+}
+
+.S {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+    font-size: 80%;
+    text-align: center;
+	color: #fff;
+	padding: 1em 1em;
+	background-color: tomato;
+	border-radius: 20px;
+}
