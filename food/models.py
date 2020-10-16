@@ -31,11 +31,9 @@ class Food(models.Model):
         choices=tags,
         default='N',
         )
-    lat = models.IntegerField(blank=True, null=True)
-    lon = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        ordering = ['expiry']
+    lat = models.FloatField(blank=True, null=True)
+    lon = models.FloatField(blank=True, null=True)
+    distance = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.name

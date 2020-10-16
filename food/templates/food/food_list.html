@@ -45,7 +45,9 @@
                 </p>
               </div>
               <div class="container loc twosent">
-                <p class="card-text">DISTANCE: {{ criminal.location }} </p>
+                <p class="card-text">DISTANCE: {{ food.distance }} </p>
+                <p id="lat" hidden>{{ food.lat }}</p>
+                <p id="lon" hidden>{{ food.lon }}</p>
               </div>
               <div class="container tag">
                 {% if food.tag != 'N' %}
@@ -84,5 +86,7 @@
   {% else %}
   not found
   {% endif %}
+
+<script src="{% static 'js/geoloc.js' %}"></script>
 
 {% endblock %}

@@ -9,6 +9,8 @@ class Donator(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
     addresses = models.ManyToManyField('Address')
+    lat = models.FloatField(blank=True, null=True)
+    lon = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return self.user.username

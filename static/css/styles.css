@@ -16,6 +16,28 @@
     padding: 0;
 }
 
-.dropdown > a {
+.dropdown>a {
     color: white;
+}
+
+.E {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+    font-size: 80%;
+    text-align: center;
+	color: #fff;
+	padding: 1em 1em;
+	background-color: red;
+	border-radius: 20px;
+}
+
+.T {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-align: center;
+	font-size: 80%;
+	color: #fff;
+	padding: 1em 1em;
+	background-color: #656060;
+	border-radius: 20px;
 }
