@@ -32,7 +32,7 @@
 
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
-                        <table >
+                        <table class="col-xs-1" align="center">
                             <tr>
                                 <td>{{ form.username.label_tag }}</td>
                                 <td>{{ form.username }}</td>
@@ -41,13 +41,25 @@
                                 <td>{{ form.password.label_tag }}</td>
                                 <td>{{ form.password }}</td>
                             </tr>
+
+                            <tr>
+                                <td><input type="submit" value="login"></td>
+                                <td><input type="hidden" name="next" value="{{ next }}">
+                                    {# Assumes you setup the password_reset view in your URLconf, CHANGE URL #}
+                                    <a href="{% url 'login' %}">Lost password?</a>
+                                </td>
+                            </tr>
+                            <tr>                                
+                                <td>Don't have account? <a href="{% url 'signup' %}">SignUp Here</a></td>
+                            </tr>
                         </table>
 
-                        <input type="submit" value="login">
-                        <input type="hidden" name="next" value="{{ next }}">
+                        
+
+                        
+                        
                     </form>
-                    {# Assumes you setup the password_reset view in your URLconf, CHANGE URL #}
-                    <p><a href="{% url 'login' %}">Lost password?</a></p>
+                    
 
                 </div>
             
