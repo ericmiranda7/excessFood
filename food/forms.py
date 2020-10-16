@@ -8,6 +8,7 @@ from smart_selects.form_fields import ChainedSelect
 class FoodForm(ModelForm):
     added_at = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
     expiry = forms.DateTimeField(widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
+    
     class Meta:
         model = Food
         fields = '__all__'

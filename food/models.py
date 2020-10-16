@@ -25,6 +25,12 @@ class Food(models.Model):
         sort=True,
     )
     photo = models.ImageField()
+    tags = (('T', 'Tentative'), ('E', 'Emergency'), ('S', 'Expiring soon'), ('N', 'None'))
+    tag = models.CharField(
+        max_length=2,
+        choices=tags,
+        default='N',
+        )
 
     class Meta:
         ordering = ['expiry']
