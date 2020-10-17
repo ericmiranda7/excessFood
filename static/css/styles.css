@@ -20,6 +20,17 @@
     color: white;
 }
 
+
+
+.boxShadow{
+	width: 51%;
+    padding: 4em;
+    margin-left: 17em;
+    margin-top: 0em;
+    box-shadow: 2.5px 2.5px 10px grey;
+    border-radius: 20px;
+}
+
 .E {
 	text-transform: uppercase;
 	letter-spacing: 1px;
