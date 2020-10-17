@@ -6095,7 +6095,10 @@ a.close.disabled {
 }
 
 .bg-primary {
-  background-color: #1abc9c !important;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1504159506876-f8338247a14a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80") !important;
+  background-size: cover;  
+  background-attachment: fixed;
+  color: #fff;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
