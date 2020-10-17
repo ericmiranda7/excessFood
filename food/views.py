@@ -6,22 +6,15 @@ from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from datetime import date
 
-# Helper functions
-import math
+#Geoloc
+from django.views import generic
+from django.contrib.gis.geos import fromstr, Point
+from django.contrib.gis.db.models.functions import Distance
 
-def distance(origin, destination):
-    lat1, lon1 = origin
-    lat2, lon2 = destination
-    radius = 6371 # km
 
-    dlat = math.radians(lat2-lat1)
-    dlon = math.radians(lon2-lon1)
-    a = math.sin(dlat/2) * math.sin(dlat/2) + math.cos(math.radians(lat1)) \
-        * math.cos(math.radians(lat2)) * math.sin(dlon/2) * math.sin(dlon/2)
-    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1-a))
-    d = radius * c
-
-    return d
+lat = 15.299326499999998
+lon = 74.12399599999999
+user_location = Point(lon, lat, srid=4326)
 
 # Create your views here.
 class Donate(LoginRequiredMixin, CreateView):
@@ -40,7 +33,9 @@ class Donate(LoginRequiredMixin, CreateView):
 class FoodList(ListView):
     model = Food
     paginate_by = 8
-    ordering = ['expiry', 'distance']
+    queryset = Food.objects.annotate(distance=Distance('location',
+    user_location)
+    ).order_by('distance')
 
     
 

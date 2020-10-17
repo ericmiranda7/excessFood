@@ -1,6 +1,7 @@
 from accounts.models import Address, Donator
 from django.db import models
 from smart_selects.db_fields import ChainedForeignKey
+from django.contrib.gis.db import models
 
 # Create your models here.
 
@@ -31,9 +32,7 @@ class Food(models.Model):
         choices=tags,
         default='N',
         )
-    lat = models.FloatField(blank=True, null=True)
-    lon = models.FloatField(blank=True, null=True)
-    distance = models.FloatField(blank=True, null=True)
+    location = models.PointField(blank=True, null=True)
 
     def __str__(self):
         return self.name
