@@ -1,7 +1,108 @@
 {% extends 'base_template.html' %}
+{% load mathfilters %}
 
-{%block body %}
+{% block styles %}
+		* {
+			margin: 0;
+		}	
 
-{{ request.user.donator.points }}
+		.body {
+			font-family: sans-serif;
+		}
+
+		.reward_table {
+			display: block;
+			width: 40%;
+			margin-left: 27em;
+			margin-top: 5em;
+			box-shadow: 2.5px 2.5px 10px grey;
+            border-radius: 10px;
+		}
+
+		.reward_table tr{
+			display: block;
+			margin-bottom: 1em;
+			margin-left: 8em;
+		}
+		
+
+		.reward_table td{
+			/*margin-bottom: 20px;*/
+			padding: 20px 20px;
+		}
+
+		.reward_table .entry span {
+			margin-right: 5em;
+		}
+
+
+		.rounded_labels {
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			border-radius: 20px;
+			padding: 10px 20px;
+			background-color: #bcbcbc;
+		}
+
+
+{% endblock %}
+{% block body %}
+		<table border="0" class="reward_table">
+			
+			<tr>
+				<td>
+					<p class="entry">
+						<span>
+							<b>My Points:  {{ request.user.donator.points }} Points</b>
+						</span>
+					</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p class="entry">
+						<span>
+							<b>Claims:</b>
+						</span>
+					</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p class="entry">
+						<span  class="rounded_labels"><b>Marketing</b></span>
+						<span>
+						{% if request.user.donator.points|add:"-15"|abs < 0 %}
+						{{ request.user.donator.points|add:"-15"|abs }} more points required
+						{% else %}
+						<a>Claim reward !</a>
+						{% endif %}
+						</span>
+					</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p class="entry">
+						<span  class="rounded_labels"><b>Advertise</b></span>
+						<span> { X }</span>
+					</p>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<p class="entry">
+						<span  class="rounded_labels"><b>Shoutout</b></span>
+						<span> { X }</span>
+					</p>
+				</td>
+			</tr>
+		</table>
+		
+
 
 {% endblock %}

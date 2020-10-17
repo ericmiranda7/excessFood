@@ -18,6 +18,7 @@
         type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css'%}">
+    <style type="text/css"> {% block styles %} {% endblock %}</style>
     {% block head %} {% endblock %}
 </head>
 
