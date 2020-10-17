@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.gis.db import models
 
 # Create your models here.
 class Donator(models.Model):
@@ -9,9 +10,8 @@ class Donator(models.Model):
     email = models.EmailField()
     phone = models.IntegerField()
     addresses = models.ManyToManyField('Address')
-    lat = models.FloatField(blank=True, null=True)
-    lon = models.FloatField(blank=True, null=True)
-
+    location = models.PointField(blank=True, null=True)
+    
     def __str__(self):
         return self.user.username
 

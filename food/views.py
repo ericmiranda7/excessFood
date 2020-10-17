@@ -28,9 +28,11 @@ class Donate(LoginRequiredMixin, CreateView):
 class FoodList(ListView):
     model = Food
     paginate_by = 8
-    queryset = Food.objects.annotate(distance=Distance('location',
-    user_location)
-    ).order_by('distance')
+
+    def get_queryset(self, **kwargs):
+        qs = queryset = Food.objects.annotate(distance=Distance('location', self.request.user.donator.location)).order_by('expiry', 'distance')
+        return qs
+
 
     
 

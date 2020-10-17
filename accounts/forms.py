@@ -3,6 +3,8 @@ from .models import Donator, Volunteer
 from django.forms.models import ModelForm
 from django.db import models
 from django import forms
+from django.contrib.gis import forms
+
 
 
 
@@ -18,11 +20,11 @@ from django import forms
 
 class DonatorForm(ModelForm):
     user = forms.IntegerField(widget=forms.HiddenInput())
+    location = forms.PointField(widget=forms.OSMWidget(attrs={'map_width': 800, 'map_height': 500}))
     class Meta:
         model = Donator
         # fields = '__all__'
-        fields = ('first_name', 'last_name', 'email', 'phone', 'user')
-
+        fields = ('first_name', 'last_name', 'email', 'phone', 'user', 'location')
         widgets = {
         			'first_name': forms.TextInput(attrs = {'class': 'form-control'}),
         			'last_name': forms.TextInput(attrs = {'class': 'form-control'}),
