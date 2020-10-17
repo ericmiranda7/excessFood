@@ -18,38 +18,11 @@
 {% endblock %}
 
 {% block body %}
-
-
-<!-- SignUp Section-->
-    <section class="page-section" id="contact">
-        <div class="container">
-            <!-- SignUp Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Donate Food</h2>
-            <!-- Icon Divider-->
-            <div class="divider-custom">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                <div class="divider-custom-line"></div>
-            </div>
-          
-            <!-- SignUp Section Form-->
-            	<div class="form-group">
-							<form action="{% url 'donate' %}" method="POST">
-								{% csrf_token %}
-								{{ form.as_p }}
-								<input type="submit">
-							</form>
-
-				</div>
-			
-			<!-- SignUp Section Form-->
-		</div>
-	</section>
-  <!-- SignUp Section-->
-
-
-
-
+<form action="{% url 'donate' %}" method="POST">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit">
+</form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script src="/static/smart-selects/admin/js/chainedfk.js"></script>
 <script src="/static/smart-selects/admin/js/bindfields.js"></script>
