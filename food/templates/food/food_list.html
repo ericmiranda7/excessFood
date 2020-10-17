@@ -45,7 +45,11 @@
                 </p>
               </div>
               <div class="container loc twosent">
-                <p class="card-text">DISTANCE: {{ food.distance.km|floatformat:2 }} km </p>
+                <p class="card-text">
+                {% if user.is_authenticated %}
+                  DISTANCE: {{ food.distance.km|floatformat:2 }} km
+                {% endif %}
+                </p>
                 <p id="lat" hidden>{{ food.lat }}</p>
                 <p id="lon" hidden>{{ food.lon }}</p>
               </div>

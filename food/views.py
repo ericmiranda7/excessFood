@@ -37,12 +37,13 @@ class FoodList(ListView):
     paginate_by = 8
 
     def get_queryset(self, **kwargs):
-        qs = queryset = Food.objects.annotate(distance=Distance('location', self.request.user.donator.location)).order_by('expiry', 'distance')
+        if self.request.user.is_authenticated:
+            qs = Food.objects.annotate(distance=Distance('location', self.request.user.donator.location)).order_by('expiry', 'distance')
+        else:
+            qs = Food.objects.all().order_by('expiry')
         return qs
 
-
     
-
 def success(request):
     return render(request, 'food/success.html')
 
