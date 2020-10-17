@@ -11,11 +11,6 @@ from django.views import generic
 from django.contrib.gis.geos import fromstr, Point
 from django.contrib.gis.db.models.functions import Distance
 
-
-lat = 15.299326499999998
-lon = 74.12399599999999
-user_location = Point(lon, lat, srid=4326)
-
 # Create your views here.
 class Donate(LoginRequiredMixin, CreateView):
     model = Food
