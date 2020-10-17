@@ -11,6 +11,8 @@ class Donator(models.Model):
     addresses = models.ManyToManyField('Address')
     lat = models.FloatField(blank=True, null=True)
     lon = models.FloatField(blank=True, null=True)
+    points = models.IntegerField(default = 0)
+
 
     def __str__(self):
         return self.user.username
