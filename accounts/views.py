@@ -33,5 +33,8 @@ class VolunteerProfile(CreateView):
     template_name = 'accounts/volunteerProfile.html'
     success_url = 'home'
 
+def points(request):
+    return render(request, 'accounts/points.html')
+
 def index(request):
     return render(request, 'accounts/index.html')
