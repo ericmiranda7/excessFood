@@ -17,21 +17,21 @@
                 </div>
                 
 
-                <!-- Profile Section Form-->
-                	<div class="form-group">
-						<form method="POST">
-							{% csrf_token %}
-							<!-- {{ form }} -->
-							<!-- ".as_p" loads all field as <p></p> -->
-							{{ form.as_p }}
-							<input type="hidden" name="user", value="{{ request.user.id }}">
-							<input type="submit">
-						</form>
-					</div>
-				
-				<!-- Profile Section Form-->
-			</div>
-		</section>
+            <!-- Profile Section Form-->
+            	<div class="form-group boxShadow">
+					<form method="POST">
+						{% csrf_token %}
+						<!-- {{ form }} -->
+						<!-- ".as_p" loads all field as <p></p> -->
+						{{ form.as_p }}
+						<input type="hidden" name="user", value="{{ request.user.id }}">
+						<input type="submit">
+					</form>
+				</div>
+			
+			<!-- Profile Section Form-->
+		</div>
+	</section>
   <!-- Profile Section-->
 
 

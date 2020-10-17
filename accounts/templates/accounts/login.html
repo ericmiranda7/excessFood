@@ -3,7 +3,10 @@
 {% block body %}
 
 {% if form.errors %}
-<p style="color: red;" > Your username and password didn't match. Please try again.</p>
+<script>
+    alert("Your username and password didn't match. Please try again.");
+</script>
+
 {% endif %}
 
 {% if next %}
@@ -28,7 +31,7 @@
                 <div class="divider-custom-line"></div>
             </div>
              <!-- SignInSection Form-->
-                <div class="form-group">
+                <div class="form-group boxShadow">
 
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
