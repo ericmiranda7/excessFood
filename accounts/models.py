@@ -11,6 +11,7 @@ class Donator(models.Model):
     phone = models.IntegerField()
     addresses = models.ManyToManyField('Address')
     location = models.PointField(blank=True, null=True)
+    points = models.IntegerField(default=0)
     
     def __str__(self):
         return self.user.username
