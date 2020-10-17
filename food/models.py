@@ -25,7 +25,7 @@ class Food(models.Model):
         auto_choose=True,
         sort=True,
     )
-    photo = models.ImageField()
+    photo = models.ImageField(upload_to='images', default='food/default.jpeg')
     tags = (('T', 'Tentative'), ('E', 'Emergency'), ('S', 'Expiring soon'), ('N', 'None'))
     tag = models.CharField(
         max_length=2,

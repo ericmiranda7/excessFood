@@ -23,6 +23,13 @@ class Donate(LoginRequiredMixin, CreateView):
         initial['donator'] = self.request.user.donator
         return initial
 
+    def form_valid(self, form):
+        donator = self.request.user.donator
+        donator.points += 1
+        donator.save()
+        form.save()
+        return super(Donate, self).form_valid(form)
+
 
 
 class FoodList(ListView):
