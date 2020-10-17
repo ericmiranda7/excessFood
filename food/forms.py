@@ -13,6 +13,9 @@ class FoodForm(ModelForm):
         model = Food
         fields = '__all__'
 
+
+        
+
     def __init__(self, *args, **kwargs):
         super(FoodForm, self).__init__(*args, **kwargs)
         self.fields['donator'].widget.attrs['hidden'] = 'True'

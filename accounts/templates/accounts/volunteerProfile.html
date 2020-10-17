@@ -4,6 +4,7 @@
 
 
 
+<<<<<<< HEAD
   <!-- Profile Section-->
         <section class="page-section" id="contact">
             <div class="container">
@@ -32,6 +33,36 @@
 				<!-- Profile Section Form-->
 			</div>
 		</section>
+=======
+<!-- Profile Section-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- Profile Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Volunteer Profile</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+            
+
+            <!-- Profile Section Form-->
+            	<div class="form-group">
+					<form method="POST">
+						{% csrf_token %}
+						<!-- {{ form }} -->
+						<!-- ".as_p" loads all field as <p></p> -->
+						{{ form.as_p }}
+						<input type="hidden" name="user", value="{{ request.user.id }}">
+						<input type="submit">
+					</form>
+				</div>
+			
+			<!-- Profile Section Form-->
+		</div>
+	</section>
+>>>>>>> 11a7b75aacac323c24325375b3ebdb45ad303212
   <!-- Profile Section-->
 
 
