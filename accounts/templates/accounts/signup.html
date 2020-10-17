@@ -1,9 +1,39 @@
 {% extends 'base_template.html' %}
 
 {% block body %}
-<form method="POST">
-{% csrf_token %}
-{{ form }}
-<input type="submit">
-</form>
+	
+
+<!-- SignUp Section-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <!-- SignUp Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign Up</h2>
+            <!-- Icon Divider-->
+            <div class="divider-custom">
+                <div class="divider-custom-line"></div>
+                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                <div class="divider-custom-line"></div>
+            </div>
+          
+            <!-- SignUp Section Form-->
+            	<div class="form-group">
+					<form  method="POST">
+						{% csrf_token %}
+						<!-- {{ form }} -->
+						<!-- ".as_p" loads all field as <p></p> -->
+					
+						{{ form.as_p }}						
+						<input type="submit">
+						Alraedy a user? <a href="{% url 'login' %}">LogIn Here</a>
+					</form>
+					
+
+				</div>
+			
+			<!-- SignUp Section Form-->
+		</div>
+	</section>
+  <!-- SignUp Section-->
+
+
 {% endblock %}
