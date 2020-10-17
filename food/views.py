@@ -10,6 +10,7 @@ from datetime import date
 from django.views import generic
 from django.contrib.gis.geos import fromstr, Point
 from django.contrib.gis.db.models.functions import Distance
+from decimal import Decimal
 
 # Create your views here.
 class Donate(LoginRequiredMixin, CreateView):
@@ -34,11 +35,22 @@ class Donate(LoginRequiredMixin, CreateView):
 
 class FoodList(ListView):
     model = Food
-    paginate_by = 8
+    paginate_by = 9
 
     def get_queryset(self, **kwargs):
-        if self.request.user.is_authenticated:
-            qs = Food.objects.annotate(distance=Distance('location', self.request.user.donator.location)).order_by('expiry', 'distance')
+        userLocation = self.request.user.donator.location
+        if self.request.GET.get('lat') is not None:
+            print("YA MANNNNNNNNNNNN BROWSER LOC")
+            lat = float(self.request.GET.get('lat'))
+            print(lat)
+            lon = float(self.request.GET.get('lon'))
+            print(userLocation)
+            userLocation = Point(lat, lon, srid=4326)
+            print(userLocation)
+        if userLocation:
+            print(userLocation)
+            print('using top')
+            qs = Food.objects.annotate(distance=Distance('location', userLocation)).order_by('expiry', 'distance')
         else:
             qs = Food.objects.all().order_by('expiry')
         return qs
